@@ -16,17 +16,28 @@ function Header({toggle,handleClick,setToggleSearch,toggleSearch,modal,setModal}
     const[on2,setOn2] = useState(false)
     const[on3,setOn3] = useState(false)
     const[on4,setOn4] = useState(false)
+    //states used to show and unshow the dropdowns
+
+    const handleToggleSearch = ()=>{
+        if(modal){
+            setModal(false);
+        }
+        setToggleSearch(!toggleSearch);
+
+        //to prevent both modal and search-bar being open at the same time
+    }
 
     return (
         <header className={toggle ? 'p-y' : null}>
             <nav className="left">
                 {toggle ? <div className="toggle-on">
                     <FaBars onClick={()=> setModal(!modal)}/>
-                    <FaSearch onClick={()=> setToggleSearch(!toggleSearch)}/>
+                    <FaSearch onClick={handleToggleSearch}/>
                 </div> : <ul>
                     <li>black friday
                     </li>
                     <li onClick={()=>{
+                        //set all the other drop downs off if any open
                         setOn2(false)
                         setOn3(false)
                         setOn4(false)
@@ -127,7 +138,7 @@ function Header({toggle,handleClick,setToggleSearch,toggleSearch,modal,setModal}
                         setOn3(false)
                         setOn4(!on4);
                     }}>happening
-                        <div className={on4 ? 'drop-content on':'drop-content'} id="height">
+                        <div className={on4 ? 'drop-content on':'drop-content'}>
                             <div className="happening-pics">
                                 <div><img src={Hp1} alt="bella"/>
                                     <h3>

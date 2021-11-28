@@ -11,12 +11,14 @@ function Modal({modal,setModal}) {
     const [side1,setSide1] = useState(false);
     const [side2,setSide2] = useState(false);
     const [side3,setSide3] = useState(false);
+    //states to show and unshow each item's content
 
     const handleBack = ()=>{
         setSide(false)
         setSide1(false)
         setSide2(false)
         setSide3(false)
+        //used to go back to the initial modal
     }
 
     const handleX = ()=>{

@@ -1,7 +1,9 @@
 import { useState,useEffect, useRef } from 'react';
 import BlackFriday from './components/BlackFriday';
+import Footer from './components/Footer';
 import GiftHero from './components/GiftHero';
 import Header from './components/Header';
+import Instagram from './components/Instagram';
 import Modal from './components/Modal';
 import NewIn from './components/NewIn';
 import NewSZN from './components/NewSZN';
@@ -28,6 +30,7 @@ function App() {
     window.innerWidth < 1000 ? setToggle(true) : setToggle(false);
   }
 
+
   window.onload = ()=>{
     window.innerWidth < 1000 && setToggle(true);
   }
@@ -43,6 +46,8 @@ function App() {
       <Products products={products}/>
       <NewSZN/>
       <NewIn newin={newin}/>
+      <Instagram/>
+      <Footer/>
     </div>
   );
 }

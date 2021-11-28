@@ -12,10 +12,14 @@ function GiftHero({gift}) {
 
     window.addEventListener('resize',()=>{
         window.innerWidth < 750 ? setBreakPoint(true): setBreakPoint(false);
+        //used to change the background image based on view width
     })
 
     useEffect(()=>{
         onScreen && setFirstTime(true);
+        /* to prevent the animations start again when the element isn't onscreen
+        basically if the user already saw the animations they're off until page reloads
+        */
     })
 
 

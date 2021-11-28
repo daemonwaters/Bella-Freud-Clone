@@ -16,8 +16,12 @@ function NewIn({newin}) {
     const [hover1,setHover1] = useState(false);
     const [hover2,setHover2] = useState(false);
     const [hover3,setHover3] = useState(false);
+    //states used to handle the the hover effect on each card
+
     window.addEventListener('resize',()=>{
         window.innerWidth < 760 ? setCols(true):setCols(false);
+        //on small screen sizes the number of cards is reduced to only 2 card
+        //so if the screen width hits that point the two extra cards will be removed
     })
 
     const onScreen = useOnScreen(newin,'-35px');

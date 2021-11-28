@@ -18,6 +18,8 @@ function Products({products}) {
     const [hover3,setHover3] = useState(false);
     window.addEventListener('resize',()=>{
         window.innerWidth < 760 ? setCols(true):setCols(false);
+          //on small screen sizes the number of cards is reduced to only 2 card
+        //so if the screen width hits that point the two extra cards will be removed
     })
 
     const onScreen = useOnScreen(products,'-35px');
@@ -25,6 +27,9 @@ function Products({products}) {
 
     useEffect(()=>{
         onScreen && setFirstTime(true);
+        /* to prevent the animations from starting again when the element isn't onscreen
+        basically if the user already saw the animations they're off until page reloads
+        */
     })
 
     return (
